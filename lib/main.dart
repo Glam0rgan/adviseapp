@@ -7,6 +7,8 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'fitness_app/fitness_app_home_screen.dart';
 import 'package:best_flutter_ui_templates/fitness_app/my_diary/SearchSubject.dart';
 import 'package:best_flutter_ui_templates/fitness_app/my_diary/FindSchool.dart';
+import 'splash.dart';
+import 'package:flutter_survey/flutter_survey.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,13 +38,14 @@ class MyApp extends StatelessWidget {
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
       ),
-        routes: { // 显式声明路由
+        routes: {
           // "/":(context) => RootPage(),
           "CTest":(context) => CTestPage(),
           "FSchool":(context) => FindSchoolPage(),
           "SSubject":(context) => SearchSubjectPage(),
+          "FAHS":(context) => FitnessAppHomeScreen(),
         },
-      home: FitnessAppHomeScreen(),
+      home: Splash(),
     );
   }
 }
