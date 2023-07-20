@@ -76,7 +76,7 @@ class MediterranesnDietView extends StatelessWidget {
                                               padding: const EdgeInsets.only(
                                                   left: 4, bottom: 2),
                                               child: Text(
-                                                'Eaten',
+                                                '分数',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   fontFamily:
@@ -125,7 +125,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                       const EdgeInsets.only(
                                                           left: 4, bottom: 3),
                                                   child: Text(
-                                                    'Kcal',
+                                                    '分',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       fontFamily:
@@ -175,7 +175,7 @@ class MediterranesnDietView extends StatelessWidget {
                                               padding: const EdgeInsets.only(
                                                   left: 4, bottom: 2),
                                               child: Text(
-                                                'Burned',
+                                                '排名',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   fontFamily:
@@ -224,7 +224,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                       const EdgeInsets.only(
                                                           left: 8, bottom: 3),
                                                   child: Text(
-                                                    'Kcal',
+                                                    '位',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       fontFamily:
@@ -293,7 +293,7 @@ class MediterranesnDietView extends StatelessWidget {
                                             ),
                                           ),
                                           Text(
-                                            'Kcal left',
+                                            '位次',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                               fontFamily:
@@ -318,7 +318,7 @@ class MediterranesnDietView extends StatelessWidget {
                                             HexColor("#8A98E8"),
                                             HexColor("#8A98E8")
                                           ],
-                                          angle: 140 +
+                                          angle: 300 +
                                               (360 - 140) *
                                                   (1.0 - animation!.value)),
                                       child: SizedBox(
@@ -356,7 +356,7 @@ class MediterranesnDietView extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  'Carbs',
+                                  '可冲击',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,
@@ -423,7 +423,7 @@ class MediterranesnDietView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text(
-                                      'Protein',
+                                      '较稳妥',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontFamily: FitnessAppTheme.fontName,
@@ -494,7 +494,7 @@ class MediterranesnDietView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text(
-                                      'Fat',
+                                      '可保底',
                                       style: TextStyle(
                                         fontFamily: FitnessAppTheme.fontName,
                                         fontWeight: FontWeight.w500,
