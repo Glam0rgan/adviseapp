@@ -16,9 +16,12 @@ class _SplashState extends State<Splash>{
         body: new Stack(
           children: <Widget>[
             new Container(
-              child: new Image.asset(
-                'assets/fitness_app/start.jpg',
-                fit: BoxFit.fill,
+              decoration: BoxDecoration(
+                color: Colors.red,
+                image: DecorationImage(
+                  image: AssetImage('assets/fitness_app/start2.png'),
+                  fit: BoxFit.fill, // 完全填充
+                ),
               ),
             ),
             new Container(
@@ -57,6 +60,6 @@ class _SplashState extends State<Splash>{
     new Future.delayed(_duration, newHomePage);
   }
   void newHomePage() {
-    Navigator.pushReplacementNamed(context, '/HomePage');
+    Navigator.pushReplacementNamed(context, 'FAHS');
   }
 }
