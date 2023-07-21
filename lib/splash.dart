@@ -1,3 +1,4 @@
+import 'package:best_flutter_ui_templates/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
  
@@ -16,18 +17,18 @@ class _SplashState extends State<Splash>{
           children: <Widget>[
             new Container(
               child: new Image.asset(
-                'assets/fitness_app/start.png',
+                'assets/fitness_app/start.jpg',
                 fit: BoxFit.fill,
               ),
             ),
             new Container(
-              alignment: Alignment.topRight,
+              alignment: Alignment.bottomRight,
               padding: const EdgeInsets.fromLTRB(0.0, 45.0, 10.0, 0.0),
               child: OutlinedButton(
                 child: new Text(
                   "跳过",
                   textAlign: TextAlign.center,
-                  style: new TextStyle(color: Colors.white),
+                  style: new TextStyle(color: AppTheme.dark_grey),
                 ),
                 // StadiumBorder椭圆的形状
                 style: OutlinedButton.styleFrom(

@@ -6,6 +6,7 @@ import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
 import 'package:best_flutter_ui_templates/fitness_app/my_diary/meals_list_view.dart';
 import 'package:best_flutter_ui_templates/fitness_app/my_diary/water_view.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_stepper/easy_stepper.dart';
 
 class MyDiaryScreen extends StatefulWidget {
   const MyDiaryScreen({Key? key, this.animationController}) : super(key: key);
@@ -18,7 +19,7 @@ class MyDiaryScreen extends StatefulWidget {
 class _MyDiaryScreenState extends State<MyDiaryScreen>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
-
+  int activeStep = 0;
   List<Widget> listViews = <Widget>[];
   final ScrollController scrollController = ScrollController();
   double topBarOpacity = 0.0;
@@ -101,11 +102,79 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         mainScreenAnimationController: widget.animationController,
       ),
     );
-
+    listViews.add(
+      EasyStepper(
+        activeStep: activeStep,
+        lineLength: 70,
+        lineSpace: 0,
+        lineType: LineType.normal,
+        defaultLineColor: Colors.white,
+        finishedLineColor: Colors.orange,
+        activeStepTextColor: Colors.black87,
+        finishedStepTextColor: Colors.black87,
+        internalPadding: 0,
+        showLoadingAnimation: false,
+        stepRadius: 8,
+        showStepBorder: false,
+        lineDotRadius: 1.5,
+        steps: [
+          EasyStep(
+            customStep: CircleAvatar(
+              radius: 8,
+              backgroundColor: Colors.white,
+              child: CircleAvatar(
+                radius: 7,
+                backgroundColor:
+                activeStep >= 0 ? Colors.orange : Colors.white,
+              ),
+            ),
+            title: '高考日程',
+          ),
+          EasyStep(
+            customStep: CircleAvatar(
+              radius: 8,
+              backgroundColor: Colors.white,
+              child: CircleAvatar(
+                radius: 7,
+                backgroundColor:
+                activeStep >= 1 ? Colors.orange : Colors.white,
+              ),
+            ),
+            title: '高考查分',
+          ),
+          EasyStep(
+            customStep: CircleAvatar(
+              radius: 8,
+              backgroundColor: Colors.white,
+              child: CircleAvatar(
+                radius: 7,
+                backgroundColor:
+                activeStep >= 2 ? Colors.orange : Colors.white,
+              ),
+            ),
+            title: '志愿填报',
+          ),
+          EasyStep(
+            customStep: CircleAvatar(
+              radius: 8,
+              backgroundColor: Colors.white,
+              child: CircleAvatar(
+                radius: 7,
+                backgroundColor:
+                activeStep >= 3 ? Colors.orange : Colors.white,
+              ),
+            ),
+            title: '录取查询',
+          ),
+        ],
+        onStepReached: (index) =>
+            setState(() => activeStep = index),
+      ),
+    );
     listViews.add(
       TitleView(
-        titleTxt: 'Body measurement',
-        subTxt: 'Today',
+        titleTxt: '专业',
+        subTxt: '更多信息',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -125,8 +194,8 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     );
     listViews.add(
       TitleView(
-        titleTxt: 'Water',
-        subTxt: 'Aqua SmartBottle',
+        titleTxt: '志愿风险',
+        subTxt: '更多',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -179,7 +248,6 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
       ),
     );
   }
-
   Widget getMainListViewUI() {
     return FutureBuilder<bool>(
       future: getData(),
@@ -250,7 +318,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'My Study',
+                                  '志愿辅助',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,
