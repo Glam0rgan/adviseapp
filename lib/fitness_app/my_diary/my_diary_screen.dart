@@ -2,6 +2,8 @@ import 'package:best_flutter_ui_templates/fitness_app/ui_view/body_measurement.d
 import 'package:best_flutter_ui_templates/fitness_app/ui_view/glass_view.dart';
 import 'package:best_flutter_ui_templates/fitness_app/ui_view/mediterranean_diet_view.dart';
 import 'package:best_flutter_ui_templates/fitness_app/ui_view/title_view.dart';
+import 'package:best_flutter_ui_templates/fitness_app/ui_view/title_view1.dart';
+import 'package:best_flutter_ui_templates/fitness_app/ui_view/title_view2.dart';
 import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
 import 'package:best_flutter_ui_templates/fitness_app/my_diary/meals_list_view.dart';
 import 'package:best_flutter_ui_templates/fitness_app/my_diary/water_view.dart';
@@ -61,7 +63,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     const int count = 9;
 
     listViews.add(
-      TitleView(
+      TitleView1(
         titleTxt: '分数与排名',
         subTxt: '高考成绩',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
@@ -172,9 +174,9 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
       ),
     );
     listViews.add(
-      TitleView(
+      TitleView2(
         titleTxt: '专业',
-        subTxt: '更多信息',
+        subTxt: '选择',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:

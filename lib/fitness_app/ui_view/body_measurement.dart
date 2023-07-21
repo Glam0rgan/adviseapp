@@ -1,23 +1,60 @@
+import 'dart:async';
+
 import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:best_flutter_ui_templates/fitness_app/my_diary/eb.dart';
 
-class BodyMeasurementView extends StatelessWidget {
+class BodyMeasurementView extends StatefulWidget {
   final AnimationController? animationController;
   final Animation<double>? animation;
-
   const BodyMeasurementView({Key? key, this.animationController, this.animation})
       : super(key: key);
 
   @override
+  State<BodyMeasurementView> createState() => _BodyMeasurementViewState();
+}
+
+class _BodyMeasurementViewState extends State<BodyMeasurementView> {
+  late String subjecth;
+  var _SubChange;
+  @override
+  void initState() {
+    super.initState();
+    subjecth = "计算机科学与技术";
+    eventBus.on<SubjectChangeEvent>().listen(
+    (event) {
+      subjecth = event.subject;
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+      });
+    });
+    this._SubChange = eventBus.on<SubjectChangeEvent>().listen(
+    (event) {
+      subjecth = event.subject;
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+      });
+    });
+  }
+  @override
+  void dispose() {
+    super.dispose();
+    _SubChange.cancel();
+  }
+  @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: animationController!,
+      animation: widget.animationController!,
       builder: (BuildContext context, Widget? child) {
         return FadeTransition(
-          opacity: animation!,
+          opacity: widget.animation!,
           child: new Transform(
             transform: new Matrix4.translationValues(
-                0.0, 30 * (1.0 - animation!.value), 0.0),
+                0.0, 30 * (1.0 - widget.animation!.value), 0.0),
             child: Padding(
               padding: const EdgeInsets.only(
                   left: 24, right: 24, top: 16, bottom: 18),
@@ -71,7 +108,7 @@ class BodyMeasurementView extends StatelessWidget {
                                     padding: const EdgeInsets.only(
                                         left: 4, bottom: 3),
                                     child: Text(
-                                      '计算机科学与技术',
+                                      subjecth,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontFamily: FitnessAppTheme.fontName,
@@ -98,55 +135,6 @@ class BodyMeasurementView extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              /*Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Icon(
-                                        Icons.access_time,
-                                        color: FitnessAppTheme.grey
-                                            .withOpacity(0.5),
-                                        size: 16,
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 4.0),
-                                        child: Text(
-                                          'Today 8:26 AM',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontFamily:
-                                                FitnessAppTheme.fontName,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14,
-                                            letterSpacing: 0.0,
-                                            color: FitnessAppTheme.grey
-                                                .withOpacity(0.5),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 4, bottom: 14),
-                                    child: Text(
-                                      '数据仅供参考',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontFamily: FitnessAppTheme.fontName,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 12,
-                                        letterSpacing: 0.0,
-                                        color: FitnessAppTheme.nearlyDarkBlue,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              )*/
                             ],
                           )
                         ],

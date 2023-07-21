@@ -34,6 +34,8 @@ dependencies:
     animations: ^2.0.3
     flutter_survey: ^0.1.4
     easy_stepper: ^0.7.2
+    event_bus: ^2.0.0
+    bruno: ^3.3.0
 
 dev_dependencies:
     flutter_test:
